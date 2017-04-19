@@ -81,8 +81,8 @@ var obj1 = {
 var obj2 = obj1;
 obj1.age = 30;
 
-console.log(obj1.age);
-console.log(obj2.age);
+// console.log(obj1.age);
+// console.log(obj2.age);
 
 
 //functions
@@ -105,18 +105,41 @@ change(age, obj);
 console.log(age);//age has not changed because age is a primitive, so the value can't be changed inside the function.
 console.log(obj); //obj has changed because we pass a reference of the object into the function, but not THE object
 
+//passing function as arguments:
+
+var years = [1990, 1986, 1980, 1991, 1970];
+function calculateAge(el) {
+  return 2017 - el; //return is required to avoid the undefined value!!!
+}
+
+function arrayCalc(arr, fn) {
+  var arrRes = [];
+  for(var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]));
+  }
+  return arrRes;
+}
+
+//let do other functions
+function isFullAge(el) {
+  return el >= 18;
+}
+
+function masHeartRate(el) {
+  if (el >= 18 && el <= 81) {
+    return Math.round(206.9 - (0.67 * el));
+  }else {
+    return -1;
+  }
+}
 
 
-
-
-
-
-
-
-
-
-
-
+var ages = arrayCalc(years, calculateAge); //callback function wich is called later
+var fullAges = arrayCalc(ages, isFullAge);
+var rates = arrayCalc(ages, masHeartRate);
+console.log(ages);
+console.log(fullAges);
+console.log(rates);
 
 
 
