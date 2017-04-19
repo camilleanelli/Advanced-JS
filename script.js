@@ -18,8 +18,8 @@ Person.prototype.calculateAge =
 Person.prototype.lastName = 'Smith';
 
 var john = new Person('john', 1990, 'teacher');
-console.log(john);
-john.calculateAge();
+// console.log(john);
+// john.calculateAge();
 
 var jane = new Person('jane', 1969, 'designer');
 var mark = new Person('mark', 1980, 'programmer');
@@ -39,8 +39,8 @@ Dog.prototype.sayHello = function() {
 }
 
 var shoupi = new Dog('shoupi', 'yorkshire', 'yellow', 3);
-console.log(shoupi);
-shoupi.sayHello();
+// console.log(shoupi);
+// shoupi.sayHello();
 
 
 //Object.create method
@@ -56,8 +56,84 @@ joan.name = 'joan';
 joan.yearOfBirth = 1990;
 joan.job = 'teacher';
 
-console.log(joan);
-joan.calculateAge();
+// console.log(joan);
+// joan.calculateAge();
+
+//primitives vs objects
+
+
+//primitives
+var a = 23;
+var b = a;
+
+a = 46; //a is not mutate, it is a new object, so b keeps the initiale value of a
+
+console.log(a);
+console.log(b);
+
+//objects
+var obj1 = {
+  name: 'john',
+  age: 50
+}
+
+
+var obj2 = obj1;
+obj1.age = 30;
+
+console.log(obj1.age);
+console.log(obj2.age);
+
+
+//functions
+
+var age = 27;
+var obj = {
+  name:'Jonas',
+  city: 'Paris'
+}
+
+
+function change(a, b) {
+  a = 30;
+  b.city = 'San Fransisco';
+}
+
+
+change(age, obj);
+
+console.log(age);//age has not changed because age is a primitive, so the value can't be changed inside the function.
+console.log(obj); //obj has changed because we pass a reference of the object into the function, but not THE object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
