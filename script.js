@@ -41,3 +41,40 @@ Dog.prototype.sayHello = function() {
 var shoupi = new Dog('shoupi', 'yorkshire', 'yellow', 3);
 console.log(shoupi);
 shoupi.sayHello();
+
+
+//Object.create method
+
+var personProto = {
+  calculateAge: function() {
+    console.log(2017 - this.yearOfBirth);
+  }
+}
+
+var joan = Object.create(personProto);
+joan.name = 'joan';
+joan.yearOfBirth = 1990;
+joan.job = 'teacher';
+
+console.log(joan);
+joan.calculateAge();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
