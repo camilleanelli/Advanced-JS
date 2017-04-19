@@ -223,14 +223,42 @@ function question(job) {
 
 question('teacher')('Mark');
 
+//bind, call and apply
 
+var john = {
+  name: "john",
+  age: 26,
+  job: 'teacher',
+  presentation: function(style, timeOfDay) {
+    if(style === 'formal') {
+      console.log('Good ' + timeOfDay + ', ladies and gentlemen! I\'m a ' + this.job + ' and I\'m '+ this.age + ' years old.');
+    }else if(style === 'friendly') {
+      console.log('Hello ! What\'s up? I\'m ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay);
+    }
+  }
+}
 
+var emily = {
+  name: "emily",
+  age: 40,
+  job: "designer"
+}
 
+john.presentation('formal', 'morning');
 
+// call method
+john.presentation.call(emily, 'formal', 'afternoon');
 
+// apply method
+// john.presentation.apply(emily, ['formal', 'afternoon']);  
+//=> can't work here because we pass an array as argument, and the function is not waiting for an array.
 
+var johnFriendly = john.presentation.bind(john, 'friendly');
+johnFriendly('morning');
+johnFriendly('afternoon');
 
-
+var emilyFriendly = john.presentation.bind(emily, 'friendly');
+emilyFriendly('morning');
 
 
 
