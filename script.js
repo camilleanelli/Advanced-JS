@@ -170,6 +170,33 @@ designerQuestion('Mark');
 //other way to call 2 functions
 var manuTeacher = interviewQuestion('teacher')('Manu');
 
+//IIFE  immediately invoked function expressions
+
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// }
+// game();
+
+(function() {
+  var score = Math.random() * 10;
+  console.log(score >= 5);
+})();
+
+//we can pass an argument 
+(function(goodLuck) {
+  var score = Math.random() * 10;
+  console.log(score >= (5 - goodLuck));
+})(5);
+
+
+
+
+
+
+
+
+
 
 
 
