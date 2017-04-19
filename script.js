@@ -142,11 +142,33 @@ console.log(fullAges);
 console.log(rates);
 
 
+//functions returning functions:
 
+function interviewQuestion(job) {
+  if(job === "designer") {
+    return function(name) {
+      console.log(name + " can you please explain what is your UX design?");
+    }
+  }
+  else if(job === "teacher") {
+    return function(name) {
+      console.log(name + " what subject do you teach?");
+    }
+  }else {
+    return function(name) {
+      console.log("hello " + name + ", what do you do ?");
+    }
+  }
+}
 
+var teacherQuestion = interviewQuestion('teacher'); //=> return function 
+teacherQuestion('john'); //=> return string inside console
 
+var designerQuestion = interviewQuestion('designer');
+designerQuestion('Mark');
 
-
+//other way to call 2 functions
+var manuTeacher = interviewQuestion('teacher')('Manu');
 
 
 
