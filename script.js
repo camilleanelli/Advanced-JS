@@ -189,14 +189,39 @@ var manuTeacher = interviewQuestion('teacher')('Manu');
   console.log(score >= (5 - goodLuck));
 })(5);
 
+// closures :
 
+function retirement(retirementAge) {
+  var a = ' years left until the retirement';
+  return function(yearOfBirth) {
+    var age = 2017 - yearOfBirth;
+    console.log((retirementAge - age) + a);
+  }
+}
 
+var retirementUS = retirement(66); //=>  it returns a function
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
 
+retirementUS(1990); 
+retirementGermany(1996);
+retirementIceland(1986);
 
+//other example
 
+function question(job) {
+  return function(name) {
+    if(job === 'teacher') {
+      console.log(name + " what subject do you teach?");
+    }else if(job === 'designer') {
+      console.log(name + " can you please explain what is your UX design?");
+    }else {
+      console.log("hello " + name + ", what do you do ?");
+    }
+  }
+}
 
-
-
+question('teacher')('Mark');
 
 
 
