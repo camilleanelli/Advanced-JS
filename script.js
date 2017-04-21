@@ -107,7 +107,7 @@ console.log(obj); //obj has changed because we pass a reference of the object in
 
 //passing function as arguments:
 
-var years = [1990, 1986, 1980, 1991, 1970];
+var years = [1990, 1986, 1980, 2000, 1970];
 function calculateAge(el) {
   return 2017 - el; //return is required to avoid the undefined value!!!
 }
@@ -121,8 +121,8 @@ function arrayCalc(arr, fn) {
 }
 
 //let do other functions
-function isFullAge(el) {
-  return el >= 18;
+function isFullAge(limit, el) {
+  return el >= limit;
 }
 
 function masHeartRate(el) {
@@ -135,10 +135,10 @@ function masHeartRate(el) {
 
 
 var ages = arrayCalc(years, calculateAge); //callback function wich is called later
-var fullAges = arrayCalc(ages, isFullAge);
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20)); //=> define the first argument wich will be the same 
 var rates = arrayCalc(ages, masHeartRate);
 console.log(ages);
-console.log(fullAges);
+console.log(fullJapan);
 console.log(rates);
 
 
